@@ -43,6 +43,7 @@ from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import mean_squared_error
 import scipy.stats
 import shap
+from rdkit.Chem import Draw
 
 def Get_COS2(x1):#计算（N，19）形式数据的cos2
     PHI=[]
@@ -951,13 +952,11 @@ for i in a:
 '''   ''' 
 mols,uc,U_mols,Times=screen_OECT(model2,m2)
 #print(mob)
-from rdkit.Chem import Draw
 Draw.MolsToGridImage(mols[:40],molsPerRow=4, legends=[str(round(x,3)) for x in uc[:40]], subImgSize=(250,250),useSVG=True)
 #print([Chem.MolToSmiles(x) for x in mols[:40]])
 Draw.MolsToGridImage(U_mols[:20],molsPerRow=4, legends=[str(x) for x in Times[:20]], subImgSize=(250,250),useSVG=True)
 mols,uc,U_mols,Times=screen_OECT(model1,m1)
 #print(mob)
-from rdkit.Chem import Draw
 Draw.MolsToGridImage(mols[:40],molsPerRow=4, legends=[str(round(x,3)) for x in uc[:40]], subImgSize=(250,250),useSVG=True)
 #print([Chem.MolToSmiles(x) for x in mols[:40]])
 Draw.MolsToGridImage(U_mols[:20],molsPerRow=4, legends=[str(x) for x in Times[:20]], subImgSize=(250,250),useSVG=True)
