@@ -777,7 +777,7 @@ def Plot_XY(x,y,color,size,x_min=None,x_max=None,grid=True,tick=None,diag=True,d
 
 
 def OECT_data(model1,model2,target='mobility'):
-    data3=pd.read_csv('OECT2.csv')
+    data3=pd.read_csv('OECT.csv')
     smi_list=[x.replace('Fr','H').replace('Cs','H') for x in data3['smiles'].values.tolist()]
     data3=unique_acc_smile(smi_list,data3)
     dimer=data3['dimers1'].values
@@ -875,7 +875,7 @@ def OECT_data(model1,model2,target='mobility'):
     return oect_x12,h,oect_x22,e
 
 def screen_OECT(model1,model2):
-    data=np.load('conf-2.npy',allow_pickle=True).item()
+    data=np.load('conf.npy',allow_pickle=True).item()
     DP=pd.DataFrame(data['feature'])
     DP.iloc[:,1]=DP.iloc[:,1].apply(lambda x:x-0.8)
     mob_ele=model1.predict(DP.iloc[:,:12])
@@ -914,7 +914,7 @@ def screen_OECT(model1,model2):
     Times=tim[::-1]
     return mols,mob,U_mols,Times
     
-x1,y1,y2=Get_train_data('mob-5.csv',10,'./Unimolsave',['HOMO(eV)','LUMO(eV)','Mn(kg/mol)','PDI'],SC=1)
+x1,y1,y2=Get_train_data('mob.csv',10,'./Unimolsave',['HOMO(eV)','LUMO(eV)','Mn(kg/mol)','PDI'],SC=1)
 x2=[x[:2]+x[6:16] for x in x1]
 train_x1,train_y1,test_x1,test_y1,N=train_test_split(964,0.9,x2,y1)
 train_x2,train_y2,test_x2,test_y2,N=train_test_split(964,0.9,x2,y2)
