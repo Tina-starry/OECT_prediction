@@ -34,7 +34,7 @@ clf = MolTrain(task='multilabel_regression',
 clf.fit(train_data_HL)
 
 #scan Train
-data2=pd.read_csv('INPUT_4.csv')
+data2=pd.read_csv('INPUT.csv')
 train_data0 = data.sample(frac=0.9, random_state=1)
 train_data=pd.DataFrame(index=range(train_data0.shape[0]),columns=range(20))
 train_data.iloc[:,0]=train_data0['smiles'].values
