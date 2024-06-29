@@ -1,4 +1,4 @@
-# OECT_predictio
+# OECT_prediction
 OECT-performance-prediction from OFET data
 The dataset, code for the paper 'OECT performance prediction from OFET data'
 #Please cite
